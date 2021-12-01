@@ -9,12 +9,13 @@ import { getProducts } from './actions/products';
 
 
 function App() {
+  const [currentId, setCurrentId] = useState(null);
   const classes = useStyles();
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getProducts());
-  }, [dispatch]);
+  }, [currentId,dispatch]);
 
   return (
     <Container maxidth="lg">
@@ -28,10 +29,10 @@ function App() {
             <Container>
                 <Grid container justifyContent="space-between" alignItems="stretch" spacing={3}>
                     <Grid item xs={12} sm={8}> 
-                        <Products/>
+                        <Products setCurrentId={setCurrentId}/>
                     </Grid>
                     <Grid item xs={12} sm={4}> 
-                        <Form  />
+                        <Form  currentId={currentId} setCurrentId={setCurrentId}/>
                     </Grid>
                 </Grid>
             </Container>
