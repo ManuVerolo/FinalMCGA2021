@@ -1,7 +1,14 @@
 import React from 'react';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, comopse } from 'redux';
+import { thunk } from 'redux-thunk';
+import reducers from './reducers';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+
+const store = createStore(reducers, compose(applyMiddleware(thunk)))
 
 ReactDOM.render(
   <React.StrictMode>

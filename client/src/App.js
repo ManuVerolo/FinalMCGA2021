@@ -1,6 +1,6 @@
 import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
 import Form from './components/Form/Form';
-import roducts from './components/Products/Products';
+import Products from './components/Products/Products';
 import logo from './images/logo.png';
 import useStyles from './styles';
 
