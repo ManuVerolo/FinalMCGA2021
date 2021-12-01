@@ -1,11 +1,12 @@
 import * as api from '../api';
 
 //ACTION CREATORS
-export const getProducts = () => (dispatch) => {
+export const getProducts = () => async (dispatch) =>  {
     try{
-        const { data } = await api.getProducts();
+        const { data } = await api.fetchProducts();
         dispatch({ type: 'FETCH_ALL', payload: data });
     }catch (error){
         console.log(error);
+
     }
 };
