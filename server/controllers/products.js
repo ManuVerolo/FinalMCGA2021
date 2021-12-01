@@ -1,13 +1,13 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import Products from '../models/products.js';
+import Product from '../models/products.js';
 
 const router = express.Router();
 
 export const getProducts = async (req, res) => { 
     try {
-        const Products = await Products.find();
-                
+        const Products = await Product.find();
+
         res.status(200).json(Products);
     } catch (error) {
         res.status(404).json({ message: error });
@@ -17,7 +17,7 @@ export const getProducts = async (req, res) => {
 export const createProduct = async (req, res) => {
     const { name , description, selectedFile, price } = req.body;
 
-    const newProduct = new Products({ name, description, selectedFile, price })
+    const newProduct = new Product({ name, description, selectedFile, price })
 
     try {
         await newProduct.save();
