@@ -8,4 +8,4 @@ export const getProducts = () => (dispatch) => {
     }catch (error){
         console.log(error);
     }
-);
+};
