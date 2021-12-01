@@ -28,3 +28,15 @@ export const createProduct = async (req, res) => {
     }
 }
 
+export const updateProduct = async (req, res) => {
+    const { id } = req.params;
+    const { name, description, price, selectedFile } = req.body;
+    
+    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No existe el producto con el id  : ${id}`);
+
+    const updateProduct = { name, description, price, selectedFile, _id: id };
+
+    await Product.findByIdAndUpdate(id, updateProduct, { new: true });
+
+    res.json(updateProduct);
+}
