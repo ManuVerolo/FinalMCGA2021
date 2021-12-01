@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
+import Form from './components/Form/Form';
+import roducts from './components/Products/Products';
+import logo from './images/logo.png';
+import useStyles from './styles';
+
 
 function App() {
+  const classes = useStyles();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Container maxidth="lg">
+        <AppBar className={classes.appBar} position="static" color ="inherit">
+            <Typography className={classes.heading} variant="h2" align="center">
+                Productos
+            </Typography>
+            <img className={classes.image} src={logo} alt="posts" height="60" /> 
+        </AppBar>
+        <Grow in>
+            <Container>
+                <Grid container justifyContent="space-between" alignItems="stretch" spacing={3}>
+                    <Grid item xs={12} sm={8}> 
+                        <Products/>
+                    </Grid>
+                    <Grid item xs={12} sm={4}> 
+                        <Form  />
+                    </Grid>
+                </Grid>
+            </Container>
+        </Grow>
+    </Container>
+  )
 }
 
 export default App;
