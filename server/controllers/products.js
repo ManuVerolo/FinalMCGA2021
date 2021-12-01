@@ -40,3 +40,18 @@ export const updateProduct = async (req, res) => {
 
     res.json(updateProduct);
 }
+
+export const deleteProduct = async (req, res) => {
+    try{
+        const { id } = req.params;
+
+        if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No existe el producto con el id: ${id}`);
+
+        await Product.findByIdAndRemove(id);
+
+        res.json({ message: "Producto eliminado correctamente" });
+    }catch (error){
+        console.log(error);
+    }
+    
+}
