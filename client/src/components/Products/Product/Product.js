@@ -24,7 +24,7 @@ const Product = ({product, setCurrentId}) => {
         <Typography variant="body2" color="textSecondary" component="p">${product.price}</Typography>
       </CardContent>
       <CardActions className={classes.cardActions}>
-        <Button size="small" color="primary" onClick={() => dispatch(deleteProduct(product._id))}><DeleteIcon fontSize="small" /> Delete</Button>
+        <Button size="small" color="error" onClick={() => dispatch(deleteProduct(product._id))}><DeleteIcon  color="error" fontSize="small" /> Delete</Button>
         <Button size="small" color="primary" onClick={() => setCurrentId(product._id)}><EditIcon fontSize="small" /> Editar</Button>
       </CardActions>
     </Card>

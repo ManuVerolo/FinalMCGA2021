@@ -12,6 +12,7 @@ const About = () => {
                     <Paper className={classes.paper}> 
                         <Typography className={classes.title} variant="h6">ABOUT</Typography>
                         <Typography className={classes.details}>Desarrollado por: Manuel Verolo</Typography>
+                        <Typography className={classes.details}>Materia: Modelos Computacionales De Gestión Administrativa</Typography>
                         <Typography className={classes.details}>Carrera: Ingenieria en Sistemas</Typography>
                         <Typography className={classes.details}>Manual de usuario: <Button variant="outlined" download  href={pdf}>Descargar</Button></Typography>
                     </Paper>
