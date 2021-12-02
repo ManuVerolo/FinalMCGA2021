@@ -1,47 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
-import { useDispatch } from 'react-redux';
-
-
-import Form from './components/Form/Form';
-import Products from './components/Products/Products';
-import { getProducts } from './actions/products';
+import React from 'react';
+import { Container } from '@material-ui/core';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'; 
+import Navbar from './components/Navbar/Navbar';
 import useStyles from './styles';
-
-import logo from './images/logo.png';
+import Home from './components/Home/Home';
+import About from './components/About/About';
 
 const App = () => {
-
-  const [currentId, setCurrentId] = useState(null);
-  const dispatch = useDispatch();
-  const classes = useStyles();
-
-  useEffect(() => {
-    dispatch(getProducts());
-  }, [currentId, dispatch]);
-
-  return (
-    <Container maxidth="lg">
-        <AppBar className={classes.appBar} position="static" color ="inherit">
-            <Typography className={classes.heading} variant="h2" align="center">
-                Productos
-            </Typography>
-            <img className={classes.image} src={logo} alt="posts" height="60" /> 
-        </AppBar>
-        <Grow in>
-            <Container>
-                <Grid container justifyContent="space-between" alignItems="stretch" spacing={3}>
-                    <Grid item xs={12} sm={8}> 
-                        <Products setCurrentId={setCurrentId}/>
-                    </Grid>
-                    <Grid item xs={12} sm={4}> 
-                        <Form  currentId={currentId} setCurrentId={setCurrentId}/>
-                    </Grid>
-                </Grid>
-            </Container>
-        </Grow>
-    </Container>
-  )
+    return (
+    <BrowserRouter>
+        <Container maxidth="lg">
+            <Navbar />
+            <Routes>
+                <Route exact path="/" element={<Home/>} />
+                <Route exact path="/about" element={<About/>} />
+            </Routes>
+            {/* <Home /> */}
+        </Container>
+    </BrowserRouter>
+    );
+  
 }
 
 export default App;
