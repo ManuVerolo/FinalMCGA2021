@@ -8,15 +8,11 @@ const Navbar = () => {
     const classes = useStyles();
     return (
         <AppBar className={classes.appBar} position="static" color ="inherit">
-            <div className={classes.brandContainer}>
-                <Typography component={Link} to="/" className={classes.heading} variant="h2" align="center">
-                    Productos
-                </Typography>
-                <img className={classes.image} src={logo} alt="posts" height="60" /> 
-            </div>
-            <Toolbar className={classes.toolbar}>
-               <Button component={Link} to="/about" variant="contained" color="primary">About</Button>
+            <Toolbar className={classes.heading}>
+               <Button className={classes.buttonNav} component={Link} to="/" variant="contained" color="primary">Productos</Button>
+               <Button className={classes.buttonNav} component={Link} to="/about" variant="contained" color="primary">About</Button>
             </Toolbar>
+            <img className={classes.image} src={logo} alt="posts" height="60" /> 
         </AppBar>
     )
 }
