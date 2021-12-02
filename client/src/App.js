@@ -1,21 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
+import { useDispatch } from 'react-redux';
+
+
 import Form from './components/Form/Form';
 import Products from './components/Products/Products';
-import logo from './images/logo.png';
-import useStyles from './styles';
 import { getProducts } from './actions/products';
+import useStyles from './styles';
 
+import logo from './images/logo.png';
 
-function App() {
+const App = () => {
+
   const [currentId, setCurrentId] = useState(null);
-  const classes = useStyles();
   const dispatch = useDispatch();
+  const classes = useStyles();
 
   useEffect(() => {
     dispatch(getProducts());
-  }, [currentId,dispatch]);
+  }, [currentId, dispatch]);
 
   return (
     <Container maxidth="lg">

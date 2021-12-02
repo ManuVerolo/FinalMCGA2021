@@ -7,7 +7,7 @@ import { createProduct, updateProduct } from '../../actions/products';
 
 const Form = ({ currentId, setCurrentId }) => {
   const [productData, setProductData] = useState({name: '', description: '', price: '', selectedFile: ''});
-  const product = useSelector((state) => (currentId ? state.product.find((name) => name._id === currentId) : null));
+  const product = useSelector((state) => (currentId ? state.products.find((name) => name._id === currentId) : null));
   const classes = useStyles();
   const dispatch = useDispatch();
   
@@ -38,12 +38,12 @@ const Form = ({ currentId, setCurrentId }) => {
           <TextField name="name" variant="outlined" label="Name" fullWidth value={productData.name} onChange={(e) => setProductData({ ...productData, name: e.target.value })} />
           <TextField name="description" variant="outlined" label="Description" fullWidth  value={productData.description} onChange={(e) => setProductData({ ...productData, description: e.target.value })} />
           <TextField name="price" variant="outlined" label="Price" fullWidth multiline rows={4} value={productData.price} onChange={(e) => setProductData({ ...productData, price: e.target.value })}/>
-          <div className={classes.fileInput}><FileBase type="file" multiple={false}/></div>
+          <div className={classes.fileInput}><FileBase type="file" multiple={false} onDone={({ base64 }) => setProductData({ ...productData, selectedFile: base64 })}/></div>
           <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
-          <Button variant="contained" color="secondary" size="small" fullWidth>Clear</Button>
+          <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
         </form>
       </Paper>
     );
-}
+};
 
 export default Form;
