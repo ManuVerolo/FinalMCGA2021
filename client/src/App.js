@@ -5,6 +5,7 @@ import Navbar from './components/Navbar/Navbar';
 import useStyles from './styles';
 import Home from './components/Home/Home';
 import About from './components/About/About';
+import Footer from './components/Footer/Footer';
 
 const App = () => {
     return (
@@ -15,7 +16,7 @@ const App = () => {
                 <Route exact path="/" element={<Home/>} />
                 <Route exact path="/about" element={<About/>} />
             </Routes>
-            {/* <Home /> */}
+            <Footer />
         </Container>
     </BrowserRouter>
     );
