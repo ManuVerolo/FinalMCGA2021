@@ -10,7 +10,7 @@ const Products = ({ setCurrentId }) => {
   const classes = useStyles();
 
   return (
-    !products.length ? <CircularProgress /> : (
+    !products.length ? <CircularProgress className={classes.cirularProgress} /> : (
       <Grid className={classes.container} container alignItems="stretch" spacing={3}>
         {products.map((product) => (
           <Grid key={product._id} item xs={12} sm={6} md={6}>

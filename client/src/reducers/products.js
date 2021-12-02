@@ -7,7 +7,8 @@ export default (products = [], action) => {
         case 'UPDATE':
             return products.map((product) => product.__id === action.payload.__id ? action.payload : product);
         case 'DELETE':
-            return products.filter((product) => product.__id !== action.payload.__id);
+            //Mantengo los productos menos el que se elimina
+            return products.filter((product) => product._id !== action.payload);
         default:
             return products;
     }
