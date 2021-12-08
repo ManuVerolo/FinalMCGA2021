@@ -7,9 +7,6 @@ export default makeStyles((theme) => ({
       margin: theme.spacing(1),
     },
   },
-  paper: {
-    padding: theme.spacing(2),
-  },
   form: {
     display: 'flex',
     flexWrap: 'wrap',
@@ -22,4 +19,21 @@ export default makeStyles((theme) => ({
   buttonSubmit: {
     marginBottom: 10,
   },
+  paper: {
+    ['@media (min-width:780px)']: { 
+      width: '220px',
+      position: 'fixed',
+      padding: theme.spacing(2),
+    },
+    ['@media (min-width: 992px) and (max-width: 1199.98px)']: { 
+      width: '310px',
+      position: 'fixed',
+      padding: theme.spacing(2),
+    },
+    ['@media (min-width: 1200px)']: { 
+      width: '350px',
+      position: 'fixed',
+      padding: theme.spacing(2),
+    }
+  }
 }));

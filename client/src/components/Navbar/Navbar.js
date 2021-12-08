@@ -1,5 +1,5 @@
 import React from 'react'
-import {AppBar, Toolbar, Typography, Button } from '@material-ui/core';
+import {AppBar, Toolbar, Button } from '@material-ui/core';
 import {Link } from 'react-router-dom';
 import logo from '../../images/logo.png';
 import useStyles from './styles';
@@ -9,7 +9,8 @@ const Navbar = () => {
     return (
         <AppBar className={classes.appBar} position="static" color ="inherit">
             <Toolbar className={classes.heading}>
-               <Button className={classes.buttonNav} component={Link} to="/" variant="contained" color="primary">Productos</Button>
+               <Button className={classes.buttonNav} component={Link} to="/" variant="contained" color="primary">Home</Button>
+               <Button className={classes.buttonNav} component={Link} to="/admin/products" variant="contained" color="primary">Productos</Button>
                <Button className={classes.buttonNav} component={Link} to="/about" variant="contained" color="primary">About</Button>
             </Toolbar>
             <img className={classes.image} src={logo} alt="posts" height="60" /> 

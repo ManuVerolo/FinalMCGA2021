@@ -8,7 +8,6 @@ import { createProduct, updateProduct } from '../../actions/products';
 const Form = ({ currentId, setCurrentId }) => {
   const [productData, setProductData] = useState({name: '', description: '', price: '', selectedFile: ''});
   const product = useSelector((state) => (currentId ? state.products.find((name) => name._id === currentId) : null));
-  const [errors, setErrors] = useState({});
   const classes = useStyles();
   const dispatch = useDispatch();
   
@@ -48,7 +47,6 @@ const Form = ({ currentId, setCurrentId }) => {
         <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
           <Typography variant="h6">{currentId ? `Editando "${product.name}"` : 'Crear producto'}</Typography>
           <TextField name="name" variant="outlined" label="Nombre" fullWidth value={productData.name} onChange={(e) => setProductData({ ...productData, name: e.target.value })} />
-          {errors.name && <Typography variant="body2" className={classes.error}>{errors.name}</Typography>}
           <TextField name="description" variant="outlined" label="Descripción" fullWidth  multiline rows={4} value={productData.description} onChange={(e) => setProductData({ ...productData, description: e.target.value })} />
           <TextField name="price" type="number" variant="outlined" label="Precio" fullWidth value={productData.price} onChange={(e) => setProductData({ ...productData, price: e.target.value })}/>
           <div className={classes.fileInput}><FileBase type="file" multiple={false}  onDone={({ base64 }) => setProductData({ ...productData, selectedFile: base64 })}/></div>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Container } from '@material-ui/core';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'; 
 import Navbar from './components/Navbar/Navbar';
-import useStyles from './styles';
+import HomeFront from './components/Front/Home/Home';
 import Home from './components/Home/Home';
 import About from './components/About/About';
 import Footer from './components/Footer/Footer';
@@ -13,7 +13,8 @@ const App = () => {
         <Container maxidth="lg">
             <Navbar />
             <Routes>
-                <Route exact path="/" element={<Home/>} />
+                <Route exact path="/" element={<HomeFront/>}></Route>
+                <Route exact path="/admin/products" element={<Home/>} />
                 <Route exact path="/about" element={<About/>} />
             </Routes>
             <Footer />

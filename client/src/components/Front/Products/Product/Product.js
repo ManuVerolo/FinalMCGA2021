@@ -1,13 +1,10 @@
 import React from 'react';
-import { Card, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core/';
-
-import DeleteIcon from '@material-ui/icons/Delete';
-import EditIcon from '@material-ui/icons/Edit';
-import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+import { Card, CardContent, CardMedia, Button, Typography } from '@material-ui/core/';
 import useStyles from './styles';
 import { useDispatch } from 'react-redux';
 
-const Product = ({product, setCurrentId}) => {
+
+const Product = ({product}) => {
   const dispatch = useDispatch();
   const classes = useStyles();
   return (
