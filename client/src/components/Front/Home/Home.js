@@ -14,8 +14,8 @@ const Home = () => {
     return (
         <Grow in>
             <Container>
-                <Grid container justifyContent="space-between" alignItems="stretch" spacing={3}>
-                    <Grid item xs={3} sm={12}> 
+                <Grid container justifyContent="space-between" alignItems="stretch" >
+                    <Grid item xs={6} sm={12}> 
                         <Products />
                     </Grid>
                 </Grid>

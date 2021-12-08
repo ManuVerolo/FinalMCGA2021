@@ -13,7 +13,7 @@ const Products = () => {
     !products.length ? <CircularProgress className={classes.cirularProgress} /> : (
       <Grid className={classes.container} container alignItems="stretch" spacing={3}>
         {products.map((product) => (
-          <Grid key={product._id} item xs={12} sm={6} md={6}>
+          <Grid key={product._id} item xs={3} sm={3} md={3}>
             <Product product={product} />
           </Grid>
         ))}
