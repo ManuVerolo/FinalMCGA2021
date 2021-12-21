@@ -2,23 +2,18 @@ import React, {useRef, useState} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import {Card, Form, Button, Container, Alert} from 'react-bootstrap'
 import { useAuth } from '../../contexts/AuthContext'
-import { Link, useNavigate  } from "react-router-dom"
+import { Link, useNavigate  } from 'react-router-dom'; 
 
-export default function Signup() {
+export default function Login() {
     const emailRef = useRef()
     const passwordRef = useRef()
-    const passwordConfirmRef = useRef()
-    const { signup } = useAuth()
+    const { login } = useAuth()
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate();
 
     async function handleSubmit(e){
         e.preventDefault()
-
-        if(passwordRef.current.value !== passwordConfirmRef.current.value){
-            return setError('Las contraseñas no coinciden')
-        }
 
         if(passwordRef.current.value.length < 6){
             return setError('La contraseña debe tener al menos 6 caracteres')
@@ -27,11 +22,11 @@ export default function Signup() {
         try{
             setError("")
             setLoading(true)
-            await signup(emailRef.current.value, passwordRef.current.value)
-            navigate("/admin/products")
+            await login(emailRef.current.value, passwordRef.current.value)
+            navigate('/admin/products')
         }catch (error){
             console.log(error);
-            setError('Error al registrarse');
+            setError('Error al ingresar');
         }
         setLoading(false)   
     }
@@ -40,7 +35,7 @@ export default function Signup() {
             <div className="w-100" style={{ maxWidth: '400px'}}>
                 <Card>
                     <Card.Body>
-                        <h2 className="text-center mb-4">Sign Up</h2> 
+                        <h2 className="text-center mb-4">Login</h2> 
                         {error && <Alert variant="danger">{error}</Alert>}
                         <Form onSubmit={handleSubmit} >
                             <Form.Group id="email">
@@ -51,16 +46,12 @@ export default function Signup() {
                                 <Form.Label>Contraseña</Form.Label>
                                 <Form.Control className="mb-3" type="password" placeholder="Ingrese la contraseña" required ref={passwordRef}/>
                             </Form.Group>
-                            <Form.Group id="password-confirm">
-                                <Form.Label>Confirmar contraseña</Form.Label>
-                                <Form.Control className="mb-3" type="password" placeholder="Confirmacion de contraseña" required ref={passwordConfirmRef}/>
-                            </Form.Group>
-                            <Button disabled={loading} type="submit" className="w-100">Sign Up</Button>
+                            <Button disabled={loading} type="submit" className="w-100">Login</Button>
                         </Form>
                     </Card.Body>
                 </Card>  
                 <div className="w-100 text-center mt-2">
-                   <Link to="/login"></Link>
+                   <Link to="/signup">Registrarse</Link>
                 </div>
           </div>
         </Container>
