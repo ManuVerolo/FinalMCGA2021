@@ -13,7 +13,8 @@ const Navbar = () => {
                <Button className={classes.buttonNav} component={Link} to="/admin/products" variant="contained" color="primary">Productos</Button>
                <Button className={classes.buttonNav} component={Link} to="/about" variant="contained" color="primary">About</Button>
             </Toolbar>
-            <img className={classes.image} src={logo} alt="posts" height="60" /> 
+            <Button className={classes.buttonNav} component={Link} to="/signup" variant="contained" color="primary">Login</Button>
+            {/* <img className={classes.image} src={logo} alt="posts" height="60" />  */}
         </AppBar>
     )
 }
