@@ -11,10 +11,13 @@ const Navbar = () => {
     const navigate = useNavigate();
     const {currentUser, logout} = useAuth();
     let button;
+    let buttonAdmin;
     if (currentUser) {
+        buttonAdmin = <Button className={classes.buttonNav} component={Link} to="/admin/products" variant="contained" color="primary">Productos</Button>
         button = <Button className={classes.buttonNav} onClick={handelLogout} variant="contained" color="primary">Logout</Button>;
     } else {
         button = <Button className={classes.buttonNav} component={Link} to="/login" variant="contained" color="primary">Login</Button>;
+        buttonAdmin = "";
     }
     async function  handelLogout(){
         try{
@@ -28,7 +31,7 @@ const Navbar = () => {
         <AppBar className={classes.appBar} position="static" color ="inherit">
             <Toolbar className={classes.heading}>
                <Button className={classes.buttonNav} component={Link} to="/" variant="contained" color="primary">Home</Button>
-               <Button className={classes.buttonNav} component={Link} to="/admin/products" variant="contained" color="primary">Productos</Button>
+               {buttonAdmin}
                <Button className={classes.buttonNav} component={Link} to="/about" variant="contained" color="primary">About</Button>
             </Toolbar>
             {button}
