@@ -8,6 +8,7 @@ import About from './components/About/About';
 import Signup from './components/Signup/Signup';
 import Login from './components/Login/Login';
 import Footer from './components/Footer/Footer';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 const App = () => {
     return (
@@ -16,7 +17,7 @@ const App = () => {
             <Navbar />
             <Routes>
                 <Route exact path="/" element={<HomeFront/>}></Route>
-                <Route exact path="/admin/products" element={<Home/>} />
+                <Route exact path='/admin/products' element={<PrivateRoute/>}></Route>
                 <Route exact path="/about" element={<About/>} />
                 <Route exact path="/signup" element={<Signup/>} />
                 <Route exact path="/login" element={<Login/>} />
