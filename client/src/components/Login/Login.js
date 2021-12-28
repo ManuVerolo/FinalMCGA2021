@@ -19,6 +19,10 @@ export default function Login() {
             return setError('La contraseña debe tener al menos 6 caracteres')
         }
 
+        if(emailRef.current.value.length == 0 || passwordRef.current.value.length == 0){
+            return setError('El email y la contraseña son requeridos');
+        }
+
         try{
             setError("")
             setLoading(true)

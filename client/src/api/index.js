@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = 'http://localhost:5000/products';
+const url = 'https://final-mcga-2021.herokuapp.com/products';
 
 export const fetchProducts = () => axios.get(url); // get all products
 export const createProduct = (newProduct) => axios.post(url, newProduct); // create new product
